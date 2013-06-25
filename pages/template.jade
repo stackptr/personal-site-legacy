@@ -1,0 +1,37 @@
+doctype
+html
+    head
+        meta(charset="utf-8")
+        title x64
+
+        link(rel="stylesheet", type="text/css", media="screen", href="css/bootstrap.min.css")
+        link(rel="stylesheet", type="text/css", media="screen", href="css/font-awesome.min.css")
+        link(rel="stylesheet", type="text/css", media="screen", href="css/main.css")
+
+        link(rel="openid2.provider", href="https://www.google.com/accounts/o8/ud?source=profiles")
+        link(rel="openid2.local_id", href="http://www.gplus.to/cjohns")
+
+        //if lt IE 9
+            script(src="//html5shim.googlecode.com/svn/trunk/html5.js")
+
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js")
+        script(src="//ajax.googleapis.com/ajax/libs/webfont/1.4.6/webfont.js")
+        script.
+            WebFont.load({ google: { families: ['Open Sans'] } });
+    body
+        .row.container
+            section.span3
+                img#avatar.img-polaroid(src="img/avatar.jpg")
+                ul.contact.icons-ul
+                    li
+                        a#email-tooltip(href="mail/", data-toggle="tooltip", data-placement="bottom", data-trigger="hover", title, data-original-title="Email me")
+                            i.icon-envelope-alt
+            section.span4
+                include includes/pages
+            section.span4
+                include includes/social
+
+            footer.span12
+                small#last-updated.pull-right.muted
+        script(src="js/bootstrap.min.js")
+        script(src="js/main.js")
