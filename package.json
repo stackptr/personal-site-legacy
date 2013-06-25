@@ -1,0 +1,22 @@
+{
+  "name": "x64-website",
+  "version": "0.0.1",
+  "description": "Website built with Jade and Grunt",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackptr/testing-node.git"
+  },
+  "author": "",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/stackptr/testing-node/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jade": "~0.7.0"
+  }
+}
