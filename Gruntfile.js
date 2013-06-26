@@ -1,14 +1,12 @@
-var output_dir = "dist";
+var input = "src";
+var output = "dist";
 
 module.exports = function(grunt) {
 
     // Project configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        clean: {
-            test: output_dir
-        },
-
+        clean: [output],
         // Jade configuration
         jade: {
             compile: {
@@ -18,10 +16,20 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: "pages",
+                    cwd: input+"/views",
                     src: "*.jade",
-                    dest: output_dir,
+                    dest: output,
                     ext: '.html'
+                }]
+            }
+        },
+        copy: {
+            main: {
+                files: [{
+                    expand: true,
+                    cwd: input+"/assets",
+                    src: "**",
+                    dest: output
                 }]
             }
         }
@@ -32,6 +40,6 @@ module.exports = function(grunt) {
     //grunt.loadNpmTasks('grunt-contrib-less');
     //grunt.loadNpmTasks('grunt-contrib-jshint');
     //grunt.loadNpmTasks('grunt-contrib-csslint');
-    //grunt.loadNpmTasks('grunt-contrib-copy");
-    return grunt.registerTask("default", ["clean", "jade"] )
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    return grunt.registerTask("default", ["clean", "jade", "copy"] )
 };
