@@ -1,8 +1,17 @@
+// Set path variables for Grunt tasks
 var input = "src";
 var output = "dist";
+var views = input+"/views";
+var assets = input+"/assets";
+var jsdir = input+"/js";
+var less = input+"/less";
 
-// name is an identifier for the page
-// title is how to display the name of the page
+/* Page model
+ * id: Unique identifier
+ * title: display name
+ * url: link attribute
+ * icon: FontAwesome icon name (do not include "icon-")
+ */
 function Page(id, title, url, icon) {
     this.id = id;
     this.title = title;
@@ -10,6 +19,7 @@ function Page(id, title, url, icon) {
     this.icon = icon;
 }
 
+// Create an array of pages to show in navigation element
 var pages = [
     new Page("index", "/", "/", "home"),
     new Page("stats", "/stats", "stats.html", "bar-chart"),
@@ -20,24 +30,23 @@ var pages = [
     new Page("library", "library.txt", "library.txt", "music")
 ];
 
+// Begin Grunt configuration
 module.exports = function(grunt) {
-
-    // Project configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         clean: [output],
         jshint: {
-            all: ['Gruntfile.js']
+            all: ['Gruntfile.js', jsdir+'/**/*.js']
         },
         jade: {
             compile: {
                 options: {
                     pretty: true,
-                    data: { debug: false, pages: pages, date: new Date() }
+                    data: { pages: pages, date: new Date() }
                 },
                 files: [{
                     expand: true,
-                    cwd: input+"/views",
+                    cwd: views,
                     src: "*.jade",
                     dest: output,
                     ext: '.html'
@@ -48,7 +57,7 @@ module.exports = function(grunt) {
             main: {
                 files: [{
                     expand: true,
-                    cwd: input+"/assets",
+                    cwd: assets,
                     src: "**",
                     dest: output
                 }]
@@ -58,9 +67,9 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    //grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    //grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     return grunt.registerTask("default", ["clean", "jshint", "jade", "copy"] );
 };
