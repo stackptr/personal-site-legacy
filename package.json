@@ -1,6 +1,6 @@
 {
-  "name": "x64-website",
-  "version": "0.0.1",
+  "name": "x64.co",
+  "version": "0.1.0",
   "description": "Website built with Jade and Grunt",
   "main": "Gruntfile.js",
   "scripts": {
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stackptr/testing-node.git"
+    "url": "https://github.com/stackptr/x64.co.git"
   },
-  "author": "",
+  "author": "stackptr",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/stackptr/testing-node/issues"
+    "url": "https://github.com/stackptr/x64.co.git/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
