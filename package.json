@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-jade": "~0.7.0"
+    "grunt-contrib-jade": "~0.7.0",
+    "grunt-contrib-clean": "~0.4.1"
   }
 }
