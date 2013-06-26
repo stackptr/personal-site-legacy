@@ -1,10 +1,12 @@
+var output_dir = "dist";
+
 module.exports = function(grunt) {
 
     // Project configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         clean: {
-            test: "output"
+            test: output_dir
         },
 
         // Jade configuration
@@ -18,7 +20,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: "pages",
                     src: "*.jade",
-                    dest: "output/",
+                    dest: output_dir,
                     ext: '.html'
                 }]
             }
