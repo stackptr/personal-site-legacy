@@ -3,6 +3,7 @@ var input = "src";
 var output = "dist";
 var views = input+"/views";
 var assets = input+"/assets";
+var cssdir = input+"/css";
 var jsdir = input+"/js";
 var less = input+"/less";
 
@@ -38,6 +39,12 @@ module.exports = function(grunt) {
         jshint: {
             all: ['Gruntfile.js', jsdir+'/**/*.js']
         },
+        csslint: {
+            options: {
+                'unique-headings': false
+            },
+            all: [cssdir+'**/*.css']
+        },
         jade: {
             compile: {
                 options: {
@@ -71,5 +78,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    return grunt.registerTask("default", ["clean", "jshint", "jade", "copy"] );
+    return grunt.registerTask("default", ["clean", "jshint", "csslint", "jade", "copy"] );
 };
