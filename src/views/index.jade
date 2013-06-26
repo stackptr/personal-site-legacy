@@ -39,9 +39,6 @@ html
             section.span4
                 include includes/social
             footer.span12
-                small.pull-right.muted
-                    | Last updated: 
-                    time(datetime=date.toISOString())
-                        =date.toDateString()
+                include includes/footer
         script(src="js/bootstrap.min.js")
         script(src="js/main.js")
