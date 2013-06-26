@@ -16,5 +16,6 @@ Web:
 Todo:
  * Switch from nginx to a Node.js-based server
  * Use LESS instead of static CSS
+ * Compile bootstrap js/less
  * Layout should be standardized between front page and subpages (page nav moves from middle to left)
  * Grid is buggy: span12 results in overflow. Possible margin error in CSS
