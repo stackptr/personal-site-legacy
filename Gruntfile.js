@@ -1,6 +1,25 @@
 var input = "src";
 var output = "dist";
 
+// name is an identifier for the page
+// title is how to display the name of the page
+function Page(id, title, url, icon) {
+    this.id = id;
+    this.title = title;
+    this.url = url;
+    this.icon = icon;
+}
+
+var pages = [
+    new Page("index", "/", "/", "home"),
+    new Page("stats", "/stats", "stats.html", "bar-chart"),
+    new Page("screens", "/screens", "screens.html", "desktop"),
+    new Page("hosted", "/hosted", "hosted.html", "folder-close-alt"),
+    new Page("hardware", "/hardware", "hardware.html", "cog"),
+    new Page("propaganda", "/propaganda", "propaganda.html", "linux"),
+    new Page("library", "library.txt", "library.txt", "music")
+];
+
 module.exports = function(grunt) {
 
     // Project configuration
@@ -14,7 +33,7 @@ module.exports = function(grunt) {
             compile: {
                 options: {
                     pretty: true,
-                    data: { debug: false }
+                    data: { debug: false, pages: pages, date: new Date() }
                 },
                 files: [{
                     expand: true,

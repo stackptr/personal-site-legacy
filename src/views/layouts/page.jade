@@ -1,9 +1,14 @@
+include ../includes/pages
+
+block pageTitle
+    pageTitle = "Test"
+
 doctype
 html
     head
         meta(charset="utf-8")
         block title
-            title x64
+            title!= "x64 &mdash; " + pageTitle
 
         block styles
             link(rel="stylesheet", type="text/css", media="screen", href="css/bootstrap.min.css")
@@ -23,11 +28,13 @@ html
     body
         .row.container
             aside.span4
-                include includes/pages
+                mixin pageList(pages, pageTitle)
             article.span7
                block content 
-
             footer.span12
-                small#last-updated.pull-right.muted
+                small.pull-right.muted
+                    | Last updated: 
+                    time(datetime = date.toISOString())
+                        =date.toDateString()
         script(src="js/bootstrap.min.js")
         script(src="js/main.js")

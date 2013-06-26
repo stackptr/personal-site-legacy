@@ -9,5 +9,6 @@
 *.vi
 *~
 
-# Ignore compiled website
+# Ignore compiled website and modules
 dist
+node_modules

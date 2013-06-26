@@ -1,12 +1,17 @@
+include includes/pages
+pageTitle = "index";
+
 doctype
 html
     head
         meta(charset="utf-8")
         title x64
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
         link(rel="stylesheet", type="text/css", media="screen", href="css/bootstrap.min.css")
         link(rel="stylesheet", type="text/css", media="screen", href="css/font-awesome.min.css")
         link(rel="stylesheet", type="text/css", media="screen", href="css/main.css")
+        link(rel="shortcut icon", type="image/png", href="favicon.png")
 
         link(rel="openid2.provider", href="https://www.google.com/accounts/o8/ud?source=profiles")
         link(rel="openid2.local_id", href="http://www.gplus.to/cjohns")
@@ -23,15 +28,20 @@ html
             section.span3
                 img#avatar.img-polaroid(src="img/avatar.jpg")
                 ul.contact.icons-ul
-                    li
-                        a#email-tooltip(href="mail/", data-toggle="tooltip", data-placement="bottom", data-trigger="hover", title, data-original-title="Email me")
-                            i.icon-envelope-alt
+                    li: a#email-tooltip(href="mail/", data-toggle="tooltip", data-placement="bottom", data-trigger="hover", title, data-original-title="Email me")
+                        i.icon-envelope-alt
+                    li: a#irc-tooltip(href="", data-toggle="tooltip", data-placement="bottom", data-trigger="hover", title, data-original-title="IRC: byte@rizon, mu@freenode")
+                        i.icon-comment-alt
+                    li: a#github-tooltip(href="http://www.github.com/stackptr", data-toggle="tooltip", data-placement="bottom", data-trigger="hover", title, data-original-title="Fork me")
+                        i.icon-github-alt
             section.span4
-                include includes/pages
+                mixin pageList(pages, pageTitle)
             section.span4
                 include includes/social
-
             footer.span12
-                small#last-updated.pull-right.muted
+                small.pull-right.muted
+                    | Last updated: 
+                    time(datetime=date.toISOString())
+                        =date.toDateString()
         script(src="js/bootstrap.min.js")
         script(src="js/main.js")
