@@ -22,6 +22,7 @@
     "grunt-contrib-less": "~0.6.1",
     "grunt-contrib-csslint": "~0.1.2",
     "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-copy": "~0.4.1"
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-symbolic-link": "~0.3.1"
   }
 }

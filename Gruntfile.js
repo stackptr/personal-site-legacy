@@ -79,6 +79,12 @@ module.exports = function(grunt) {
                     dest: output+'/css'
                 }]
             }
+        },
+        symlink: {
+            publicfiles: {
+                target: '~/public',
+                link: output+'/public'
+            }
         }
     });
 
@@ -88,5 +94,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    return grunt.registerTask("default", ["clean", "jshint", "csslint", "jade", "copy"] );
+    grunt.loadNpmTasks('grunt-symbolic-link');
+    return grunt.registerTask("default", ["clean", "jshint", "csslint", "jade", "copy", "symlink"] );
 };
