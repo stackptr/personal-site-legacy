@@ -3,11 +3,10 @@ mixin pageList(pages, current)
     h1 Pages
     ul.icons-ul
         each page in pages
-            li
-                if current != page.id
-                    a(href=page.url)
-                        i.icon-li(class="icon-"+page.icon)
-                        =page.title
-                else if current != "index"
+            if current != page.id
+                li: a(href=page.url)
                     i.icon-li(class="icon-"+page.icon)
                     =page.title
+            else if current != "index"
+                li: i.icon-li(class="icon-"+page.icon)
+                =page.title
