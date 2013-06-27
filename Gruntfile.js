@@ -1,11 +1,12 @@
 // Set path variables for Grunt tasks
-var input = "src";
-var output = "dist";
-var views = input+"/views";
-var assets = input+"/assets";
-var cssdir = input+"/css";
-var jsdir = input+"/js";
-var less = input+"/less";
+var home = process.env.HOME,
+    input = "src",
+    output = "dist",
+    views = input+"/views",
+    assets = input+"/assets",
+    cssdir = input+"/css",
+    jsdir = input+"/js",
+    less = input+"/less";
 
 /* Page model
  * id: Unique identifier
@@ -82,8 +83,8 @@ module.exports = function(grunt) {
         },
         symlink: {
             publicfiles: {
-                target: '~/public',
-                link: output+'/public'
+                target: home+'/public',
+                link: output+'/public',
             }
         }
     });
