@@ -1,7 +1,7 @@
 var express = require('express'),
-    stats   = require('./stats'),
-    pages   = require('./pages'),
-    config  = require('./config');
+    stats   = require(__dirname + '/stats'),
+    pages   = require(__dirname + '/pages'),
+    config  = require(__dirname + '/config');
 
 
 var data = {pages: pages, date: new Date()};
@@ -11,7 +11,7 @@ var app = express()
     .use(express.logger('dev'))
     .use(express.favicon())
     .use(express.static(__dirname + '/' + config.root))
-    .set('views', config.views.dir)
+    .set('views', __dirname + '/' + config.views.dir)
     .set('view engine', config.views.engine);
 
 app.locals(config.options);
@@ -32,4 +32,4 @@ app.get('/json/server', function(req, res, next) {
 });
 
 // Start
-app.listen(3000);
+app.listen(3000, "127.0.0.1");
