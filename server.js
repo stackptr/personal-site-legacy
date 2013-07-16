@@ -24,6 +24,7 @@ app.get('/hosted',      function(req, res) { res.render('hosted', data) });
 app.get('/hardware',    function(req, res) { res.render('hardware', data) });
 app.get('/propaganda',  function(req, res) { res.render('propaganda', data) });
 app.use('/public',      express.static(process.env.HOME + '/http/public'));
+app.use('/library',     function(req, res) { res.render('library', {date: new Date()})});
 
 app.get('/json/server', function(req, res, next) {
     stats( function (err, stats) {

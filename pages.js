@@ -19,5 +19,5 @@ module.exports = [
     new Page("hosted", "/hosted", "hosted", "folder-close-alt"),
     new Page("hardware", "/hardware", "hardware", "cog"),
     new Page("propaganda", "/propaganda", "propaganda", "linux"),
-    new Page("library", "library.txt", "library.txt", "music")
+    new Page("library", "/library", "library", "music")
 ];

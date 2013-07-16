@@ -5,6 +5,9 @@ include ../includes/pages
 block pageTitle
     pageTitle = "Test"
 
+block contentTitle
+    contentTitle = "Test"
+
 doctype
 html
     head
@@ -29,9 +32,10 @@ html
             WebFont.load({ google: { families: ['Open Sans'] } });
     body
         .row.container
-            nav.span12
-                block nav
             article.span12
+                h1
+                    a(href="/"): i.icon-arrow-left
+                    =" "+contentTitle
                 block content 
             footer.span12
                 include ../includes/footer
