@@ -1,28 +1,21 @@
 {
-  "name": "x64.co",
-  "version": "0.1.0",
-  "description": "Website built with Jade and Grunt",
-  "main": "Gruntfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "node-server",
+  "version": "0.0.1",
+  "private": "true",
+  "description": "Simple web server",
+  "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stackptr/x64.co.git"
+    "url": "https://github.com/stackptr/node-server.git"
   },
   "author": "stackptr",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/stackptr/x64.co.git/issues"
+    "url": "https://github.com/stackptr/node-server.git/issues"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jade": "~0.7.0",
-    "grunt-contrib-clean": "~0.4.1",
-    "grunt-contrib-less": "~0.6.1",
-    "grunt-contrib-csslint": "~0.1.2",
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-symbolic-link": "~0.3.1"
+    "express": "~3.3.4",
+    "async": "~0.2.9",
+    "jade": "~0.32.0"
   }
 }
