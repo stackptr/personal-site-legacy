@@ -4,7 +4,8 @@ var disk_gage = new JustGage({
     value: 0,
     min: 0,
     max: 100,
-    title: "Disk"
+    title: "Disk",
+    symbol: "%"
 });
 
 var mem_gage = new JustGage({
@@ -12,7 +13,8 @@ var mem_gage = new JustGage({
     value: 0,
     min: 0,
     max: 100,
-    title: "Memory"
+    title: "Memory",
+    symbol: "%"
 });
 
 // Initialize and begin updating
@@ -25,6 +27,7 @@ function getStats(){
 
         // Retrieve information
         var kernel, uptime, load, memory, disk, net, interfaces;
+        
         kernel = data.kernel;
         uptime = convertSeconds(data.uptime);
         load = data.loadavg.map (function(v) { 
@@ -38,7 +41,7 @@ function getStats(){
         var interface = { name: "", down: 0, up: 0} ;
         interfaces = data.net.filter(function(v) {
             return v.up != 0;
-        }).forEach(function(v) { // Get interface with most downloaded
+        }).forEach(function(v) { // Get interface with most usage
             if ( v.down > interface.down) {
                 interface.name = v.name;
                 interface.down = v.down;
@@ -48,8 +51,7 @@ function getStats(){
         net = convertBytes(interface.down) + " received, " + convertBytes(interface.up) + " transmitted";
 
         // Create array of information
-        var info = [];
-        info.push(kernel, uptime, load, memory, disk, net);
+        var info = [kernel, uptime, load, memory, disk, net];
 
         // Write to page
         $("dd:empty").each(function(i) {
