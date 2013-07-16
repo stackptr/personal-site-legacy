@@ -3,6 +3,10 @@ extends layouts/page
 block pageTitle
     pageTitle = "stats"
 
+append scripts-pre
+    script(src='js/raphael.2.1.0.min.js')
+    script(src='js/justgage.1.0.1.min.js')
+
 block content
     h1 Server statistics
     dl
@@ -18,5 +22,7 @@ block content
         dd
         dt Net
         dd
+
+
 append scripts-post
     script(src='js/stats.js')
