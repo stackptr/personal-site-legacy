@@ -1,6 +1,24 @@
+    var disk_gage = new JustGage({
+        id: "disk-gauge",
+        value: 0,
+        min: 0,
+        max: 100,
+        title: "Disk"
+    });
+
+    var mem_gage = new JustGage({
+        id: "memory-gauge",
+        value: 0,
+        min: 0,
+        max: 100,
+        title: "Memory"
+    });
+
 $(document).ready(function() {
+
     getStats();
-    setInterval( getStats, 3000);
+
+    setInterval( getStats, 1000);
 });
 
 function getStats(){
@@ -31,5 +49,8 @@ function getStats(){
         $("dd:empty").each(function(i) {
             $(this).html( info[i] );
         });
+
+        mem_gage.refresh(data.memory.used / data.memory.total);
+        disk_gage.refresh(data.disk.used / data.disk.total);
     });
 }
