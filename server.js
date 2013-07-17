@@ -1,7 +1,7 @@
 var express = require('express'),
-    stats   = require(__dirname + '/stats'),
-    pages   = require(__dirname + '/pages'),
-    config  = require(__dirname + '/config');
+    stats   = require('./stats'),
+    pages   = require('./pages'),
+    config  = require('./config');
 
 
 var data = {pages: pages, date: new Date()};
@@ -23,8 +23,8 @@ app.get('/screens',     function(req, res) { res.render('screens', data) });
 app.get('/hosted',      function(req, res) { res.render('hosted', data) });
 app.get('/hardware',    function(req, res) { res.render('hardware', data) });
 app.get('/propaganda',  function(req, res) { res.render('propaganda', data) });
+app.get('/library',     function(req, res) { res.render('library', {date: new Date()})});
 app.use('/public',      express.static(process.env.HOME + '/http/public'));
-app.use('/library',     function(req, res) { res.render('library', {date: new Date()})});
 
 app.get('/json/server', function(req, res, next) {
     stats( function (err, stats) {
