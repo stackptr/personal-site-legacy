@@ -1,4 +1,5 @@
 var express = require('express'),
+    url     = require('mu-url'),
     stats   = require('./stats'),
     pages   = require('./pages'),
     config  = require('./config');
@@ -25,6 +26,7 @@ app.get('/hardware',    function(req, res) { res.render('hardware', data) });
 app.get('/propaganda',  function(req, res) { res.render('propaganda', data) });
 app.get('/library',     function(req, res) { res.render('library', {date: new Date()})});
 app.use('/public',      express.static(process.env.HOME + '/http/public'));
+app.use('/u',           url());
 
 app.get('/json/server', function(req, res, next) {
     stats( function (err, stats) {
